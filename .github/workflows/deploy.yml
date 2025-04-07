@@ -17,6 +17,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Debug secrets
+        run: |
+          echo "AWS_ACCESS_KEY_ID is set"
+          echo "AWS_SECRET_ACCESS_KEY is set"
+          echo "AWS_REGION is set"
+          echo "AWS_ACCOUNT_ID is set"
+          echo "ECS_CLUSTER_NAME is set"
+          echo "ECS_SERVICE_NAME is set"
+
       - name: Login to Amazon ECR
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
