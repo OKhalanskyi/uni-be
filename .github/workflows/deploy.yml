@@ -19,7 +19,7 @@ jobs:
 
       - name: Debug secrets
         run: |
-          echo "AWS_ACCESS_KEY_ID is set"
+          echo "${{ secrets.AWS_ACCESS_KEY_ID }} is set"
           echo "AWS_SECRET_ACCESS_KEY is set"
           echo "AWS_REGION is set"
           echo "AWS_ACCOUNT_ID is set"
