@@ -29,10 +29,6 @@ COPY package.json pnpm-lock.yaml* ./
 RUN pnpm install --prod --frozen-lockfile && \
     pnpm store prune
 
-COPY --from=build /usr/src/app/dist ./dist
-
-COPY --from=build /usr/src/app/.env.prod ./.env.prod
-
 RUN chown -R nestjs:nodejs /usr/src/app
 
 USER nestjs
